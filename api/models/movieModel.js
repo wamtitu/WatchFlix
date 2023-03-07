@@ -11,7 +11,8 @@ const movieSchema = new mongoose.Schema({
     imgsm: {type: String},
     trailer: {type: String},
     video: {type: String},
+    isSeries: {type: Boolean, default: false}
 },
-{timestamp: true});
+{timestamps: true});
 
-module.exports = mongoose.model('Movie', userSchema);
+module.exports = mongoose.model('Movie', movieSchema);

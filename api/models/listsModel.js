@@ -11,6 +11,6 @@ const listSchema = new mongoose.Schema({
     content: {type: Array}
     
 },
-{timestamp: true});
+{timestamps: true});
 
-module.exports = mongoose.model('List', userSchema);
+module.exports = mongoose.model('List', listSchema);

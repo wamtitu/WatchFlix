@@ -21,17 +21,20 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-},{timestamp: true});
+},{timestamps: true});
 
-userSchema.pre('save', async function(next){
+//userSchema.pre('save', async function(next){
+    //const hashSalt=12;
 
     //runs if password is modified
-    if(!this.isModified('password')) return next();
+    //if(!this.isModified('password')) return next();
 
     //encrypt the password with a cost of 12
-    this.password = await bcrypt.hash(this.password, 12);
+   // this.password = await bcrypt.hash(this.password, hashSalt, (err)=>{
+     //   console.log(err);
+   // });
 
-    next();
-})
+   // next();
+//})
 
 module.exports = mongoose.model('User', userSchema);
