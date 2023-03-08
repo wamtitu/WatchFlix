@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const authRouter= require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const movieRouter = require('./routes/movieRouter');
+const listRouter = require('./routes/listRouter');
 
 
 const app = express();
@@ -22,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTop
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/movies', movieRouter);
+app.use('/api/lists', listRouter);
 
 app.listen(8080, ()=>{
     console.log('listenning through port 8080');
